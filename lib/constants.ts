@@ -13,6 +13,17 @@ export const SITE = {
   whatsappUrl: "https://wa.me/22670753944",
   whatsappNumber: "+226 70 75 39 44",
   registrationFee: 25000,
+  social: {
+    facebook:
+      process.env.NEXT_PUBLIC_FACEBOOK_URL ??
+      "https://www.facebook.com/cmcformation.koudougou",
+    instagram:
+      process.env.NEXT_PUBLIC_INSTAGRAM_URL ??
+      "https://www.instagram.com/cmcformationkoudougou/",
+    tiktok:
+      process.env.NEXT_PUBLIC_TIKTOK_URL ??
+      "https://www.tiktok.com/@cmcformationkoudougou",
+  },
 } as const;
 
 export const NAV_LINKS = [

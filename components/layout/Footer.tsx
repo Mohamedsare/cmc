@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { Logo } from "@/components/shared/Logo";
+import { FooterSocialLinks } from "@/components/layout/FooterSocialLinks";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 
 const domainLinks = ["Mines", "BTP", "Industrie", "Commerce", "Électricité", "HSE"];
@@ -24,6 +25,12 @@ export function Footer() {
               les métiers des mines, du commerce, de l&apos;industrie, de
               l&apos;électricité, de la gestion et de la conduite d&apos;engins lourds.
             </p>
+            <div className="mt-5">
+              <p className="mb-2 text-xs font-bold uppercase tracking-wider text-white/50">
+                Suivez-nous
+              </p>
+              <FooterSocialLinks />
+            </div>
           </div>
 
           <div>

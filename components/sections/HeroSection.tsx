@@ -23,13 +23,6 @@ const floatingCards = [
   { icon: Award, title: "Certificat", sub: "professionnel" },
 ];
 
-const heroHighlights = [
-  { icon: ShieldCheck, text: `Centre agréé : ${SITE.agrement}` },
-  { icon: MapPin, text: SITE.location },
-  { icon: HardHat, text: "Formations de 04 à 12 mois" },
-  { icon: CreditCard, text: "Inscription à partir de 25 000 FCFA" },
-];
-
 const heroContentVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -70,7 +63,7 @@ export function HeroSection() {
           >
             <motion.div
               variants={heroItemVariants}
-              className="inline-flex items-center gap-2.5 rounded-full border border-white/35 bg-white/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/35 bg-white/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary-light shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
             >
               <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-accent shadow-[0_0_12px_rgba(242,140,40,0.8)]" />
               Formations professionnelles
@@ -91,21 +84,6 @@ export function HeroSection() {
               BTP, de l&apos;industrie, du commerce, de la gestion, de
               l&apos;électricité et de la conduite d&apos;engins lourds.
             </motion.p>
-
-            <motion.div
-              variants={heroItemVariants}
-              className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5"
-            >
-              {heroHighlights.map((item) => (
-                <span
-                  key={item.text}
-                  className="inline-flex max-w-full items-center gap-1 rounded bg-black/45 px-1.5 py-0.5 text-[10px] font-medium leading-tight text-white sm:text-[11px]"
-                >
-                  <item.icon className="h-3 w-3 shrink-0 text-primary-light" />
-                  <span className="truncate">{item.text}</span>
-                </span>
-              ))}
-            </motion.div>
 
             <motion.div
               variants={heroItemVariants}
