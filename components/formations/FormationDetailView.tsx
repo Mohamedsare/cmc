@@ -28,6 +28,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/shared/Container";
 import { SimilarFormationsCarousel } from "@/components/formations/SimilarFormationsCarousel";
+import { getFormationProgrammeImage } from "@/data/formation-images";
 import {
   getFormationDomainName,
   getFormationGallery,
@@ -67,6 +68,7 @@ export function FormationDetailView({ formation, similar }: FormationDetailViewP
   const [activeImage, setActiveImage] = useState(0);
   const skills = getFormationSkills(formation);
   const domainName = getFormationDomainName(formation.domain);
+  const programmeImage = getFormationProgrammeImage(formation.slug);
   const waMessage = registrationWhatsAppMessage(formation.name);
 
   const metaItems = [
@@ -381,9 +383,23 @@ export function FormationDetailView({ formation, similar }: FormationDetailViewP
             )}
 
             {activeTab === "programme" && (
-              <div>
+              <div className="space-y-6">
                 <h2 className="text-xl font-bold">Programme de formation</h2>
-                <ol className="mt-6 space-y-4">
+                {programmeImage ? (
+                  <div className="-mx-2 overflow-x-auto sm:mx-0">
+                    <div className="min-w-0 rounded-xl border border-border bg-white p-2 sm:p-3">
+                      <Image
+                        src={programmeImage}
+                        alt={`Schéma du processus — ${formation.name}`}
+                        width={1536}
+                        height={1024}
+                        className="h-auto w-full min-w-[280px] object-contain"
+                        sizes="100vw"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                <ol className="space-y-4">
                   {formation.learnings.map((l, i) => (
                     <li key={l} className="flex gap-4">
                       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
@@ -396,6 +412,7 @@ export function FormationDetailView({ formation, similar }: FormationDetailViewP
                     </li>
                   ))}
                 </ol>
+                )}
               </div>
             )}
 

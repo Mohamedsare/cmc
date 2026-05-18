@@ -33,3 +33,13 @@ export function getFormationImage(slug: string): string | undefined {
 export function hasFormationImage(slug: string): boolean {
   return slug in FORMATION_IMAGES;
 }
+
+/** Infographies programme (maquette détaillée) — onglet Programme */
+const FORMATION_PROGRAMME_IMAGES: Record<string, string> = {
+  "processus-traitement-minerai":
+    "/images/formations/processus-traitement-minerai-programme.png",
+};
+
+export function getFormationProgrammeImage(slug: string): string | undefined {
+  return FORMATION_PROGRAMME_IMAGES[slug];
+}

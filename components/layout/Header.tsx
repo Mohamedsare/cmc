@@ -90,10 +90,10 @@ export function Header() {
                   <Link
                     href="/"
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3"
+                    className="flex items-center gap-0"
                   >
                     <Logo height={40} className="shrink-0" />
-                    <div>
+                    <div className="-ml-1">
                       <p className="text-sm font-bold leading-tight text-primary">
                         CMC Formation
                       </p>
@@ -199,13 +199,13 @@ export function Header() {
       <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="group flex min-w-0 flex-1 items-center gap-3 sm:flex-none"
+          className="group flex min-w-0 flex-1 items-center gap-0 sm:flex-none"
         >
           <Logo
             height={42}
             className="h-[42px] w-auto max-w-[3.25rem] shrink-0 object-contain sm:h-11 sm:max-w-none"
           />
-          <span className="min-w-0 sm:block">
+          <span className="-ml-1 min-w-0 sm:block">
             <span className="block truncate text-sm font-extrabold tracking-tight text-primary sm:text-base">
               CMC Formation
             </span>
@@ -258,16 +258,16 @@ export function Header() {
           <button
             type="button"
             className={cn(
-              "flex h-10 w-10 items-center justify-center rounded-xl border transition-all lg:hidden",
+              "flex h-12 w-12 items-center justify-center rounded-xl transition-all lg:hidden",
               open
-                ? "border-primary/30 bg-primary/10 text-primary"
-                : "border-border/80 bg-transparent text-foreground hover:border-primary/20 hover:bg-primary/5"
+                ? "bg-primary/10 text-primary"
+                : "bg-transparent text-foreground hover:bg-primary/5"
             )}
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
