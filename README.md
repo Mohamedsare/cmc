@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CMC Formation Koudougou — Site web
 
-## Getting Started
+Site vitrine Next.js (App Router) pour CMC Formation Koudougou.
 
-First, run the development server:
+## Développement local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Variables optionnelles : copier `.env.example` vers `.env.local` et définir `NEXT_PUBLIC_SITE_URL` si besoin (SEO, sitemap).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build de production
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Déploiement sur Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le projet est prêt pour Vercel (Next.js 16, pages statiques + SSG).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Option A — Dépôt Git = dossier `cmc` (recommandé)
 
-## Deploy on Vercel
+1. Pousser le contenu du dossier **`cmc`** sur GitHub / GitLab / Bitbucket.
+2. Sur [vercel.com](https://vercel.com) : **Add New Project** → importer le dépôt.
+3. Vercel détecte Next.js automatiquement (`npm run build`, racine du dépôt).
+4. **Environment Variables** (Production) :
+   - `NEXT_PUBLIC_SITE_URL` = `https://votre-domaine.com` (URL finale, avec `https://`)
+5. Déployer. Après le premier déploiement, ajouter un domaine personnalisé dans **Project → Settings → Domains** si besoin.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Option B — Dépôt = dossier parent `cmc-forma`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Importer le dépôt sur Vercel.
+2. **Project Settings → General → Root Directory** : renseigner **`cmc`**.
+3. Même variable `NEXT_PUBLIC_SITE_URL` qu’à l’option A.
+
+### Vérifications post-déploiement
+
+- Page d’accueil et navigation
+- `/formations` et une fiche formation
+- `/sitemap.xml` et `/robots.txt`
+- Liens WhatsApp et téléphone
+
+### Fichiers utiles
+
+| Fichier | Rôle |
+|---------|------|
+| `vercel.json` | Région `cdg1`, en-têtes de sécurité |
+| `.env.example` | Variable d’URL publique |
+| `app/sitemap.ts` | Plan du site |
+| `app/robots.ts` | Indexation |
+
+Aucune base de données ni secret obligatoire : le formulaire d’inscription est côté client (confirmation à l’écran).
